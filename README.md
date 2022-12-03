@@ -1,6 +1,6 @@
 <div align='center'>
 
-![Logo](https://raw.githubusercontent.com/Straw-x-Hats/SHN-tkinter/main/ImageX/Assets/imagex.png?token=GHSAT0AAAAAABXAGD23GBYD3472NSFMUTGMY4LWMFA)
+![Logo](https://i.postimg.cc/yNtJgQ86/imagex.png)
 
 </div>
 
@@ -22,7 +22,7 @@ An Image Manupulating Software using *tkinter-python*
 
 ## Screenshots
 
-![App Screenshot](https://raw.githubusercontent.com/Straw-x-Hats/SHN-tkinter/main/ImageX/Assets/saturdayhacknight.jpg?token=GHSAT0AAAAAABXAGD23OP4L2GDTZ45DHXXOY4LWQJQ)
+![App Screenshot](https://i.postimg.cc/1XP3wLhS/saturdayhacknight.jpg)
 
 
 ## Demo

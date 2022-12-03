@@ -1,12 +1,10 @@
 import tkinter as tk
-import tkinter.messagebox
 import customtkinter
 import os
 from PIL import Image, ImageTk
 from tkinter import filedialog
 from tkinter.filedialog import askopenfile
-from PIL import ImageFilter
-from PIL import ImageEnhance  ,ImageOps
+from PIL import ImageOps
 
 customtkinter.set_appearance_mode("System")
 customtkinter.set_default_color_theme("blue")
@@ -26,8 +24,9 @@ class App(customtkinter.CTk):
         image_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "Assets")
         self.logo_image = customtkinter.CTkImage(Image.open(os.path.join(image_path, "imagex.png")), size=(26, 26))
         self.image_icon_image = customtkinter.CTkImage(Image.open(os.path.join(image_path, "image.png")), size=(20, 20))
-        self.removebg_icon = customtkinter.CTkImage(Image.open(os.path.join(image_path, "removebg.png")), size=(20, 20))
-        self.blur_icon = customtkinter.CTkImage(Image.open(os.path.join(image_path, "blur.png")), size=(20, 20))
+        self.mirror_icon = customtkinter.CTkImage(Image.open(os.path.join(image_path, "mirror.png")), size=(20, 20))
+        self.flip_icon = customtkinter.CTkImage(Image.open(os.path.join(image_path, "flip.png")), size=(20, 20))
+        self.sol_icon = customtkinter.CTkImage(Image.open(os.path.join(image_path, "blur.png")), size=(20, 20))
         self.greyscale_icon = customtkinter.CTkImage(Image.open(os.path.join(image_path, "color.png")), size=(20, 20))
         self.invert_icon = customtkinter.CTkImage(Image.open(os.path.join(image_path, "invert.png")), size=(20, 20))
 
@@ -48,23 +47,20 @@ class App(customtkinter.CTk):
         self.invert = customtkinter.CTkButton(self.sidebar_frame, text="Invert Image", image=self.invert_icon, compound="right", command=self.invert)
         self.invert.grid(row=6, column=0, padx=20, pady=10)
 
-        self.solarize = customtkinter.CTkButton(self.sidebar_frame, text="Solarize Image", image=self.invert_icon, compound="right", command=self.solarize)
+        self.solarize = customtkinter.CTkButton(self.sidebar_frame, text="Solarize Image", image=self.sol_icon, compound="right", command=self.solarize)
         self.solarize.grid(row=7, column=0, padx=20, pady=10)
 
-        self.invert = customtkinter.CTkButton(self.sidebar_frame, text="Mirror Image", image=self.invert_icon, compound="right", command=self.mirror)
-        self.invert.grid(row=9, column=0, padx=20, pady=10)
+        self.Mirror = customtkinter.CTkButton(self.sidebar_frame, text="Mirror Image", image=self.mirror_icon, compound="right", command=self.mirror)
+        self.Mirror.grid(row=9, column=0, padx=20, pady=10)
 
-        self.invert = customtkinter.CTkButton(self.sidebar_frame, text="Flip Image", image=self.invert_icon, compound="right", command=self.flip)
-        self.invert.grid(row=11, column=0, padx=20, pady=10)
+        self.Flip = customtkinter.CTkButton(self.sidebar_frame, text="Flip Image", image=self.flip_icon, compound="right", command=self.flip)
+        self.Flip.grid(row=11, column=0, padx=20, pady=10)
 
-        # HOme
+        # Home Frame
         self.Home = customtkinter.CTkFrame(self, corner_radius=0)
         self.Home.grid(row=0, column=1)
 
-        # # Random Image Updated
-        # self.random_image = customtkinter.CTkLabel(self.Home, text="", image=self.random)
-        # self.random_image.grid(row=0, column=0, padx=20, pady=10)
-
+    # Fuctions
     def grayscale(self):
         img = Image.open("test.png")
         copyimg = ImageOps.grayscale(img)
@@ -79,7 +75,6 @@ class App(customtkinter.CTk):
             img=Image.open(f) 
             img = img.save("test.png")
             img = Image.open(f)
-            # img=img.resize((200,200))
 
             img=ImageTk.PhotoImage(img)
 
